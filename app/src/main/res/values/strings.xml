@@ -27,7 +27,7 @@
     <string name="title_activity_map">Shop Smart Map</string>
     <string name="about_us">About shop smart\n\n
         Shop smart is a shopping guide application that helps you to view specials and sales from different shops across South Africa.\n\n
-        It comes with special features the will benefits you as a user, you can be able to look for nearest shopping centres around your current location.\n\n
+        It comes with special features that will benefits you as a user, you can be able to look for nearest shopping centres around your current location.\n\n
         Designed and developed by doctorlloyd9@gmail.com
     </string>
     <string name="large_text">
@@ -60,4 +60,6 @@
     <string name="welcome">welcome</string>
     <string name="we_are_here_to_make_your_shopping_simple">..we are here to make your shopping simple..</string>
     <string name="shop_smart_has_arrived">shop smart has arrived!</string>
+    <string name="Share_with">Share with friends</string>
+    <string name="gallery">Gallery</string>
 </resources>

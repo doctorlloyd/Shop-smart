@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.admin.shopsmart.activities.ShopsRecyclerView"
+    >
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_refresh"
@@ -9,16 +11,23 @@
             android:title="@string/refresh" />
         <item
             android:id="@+id/nav_shop_centre"
-            android:icon="@drawable/common_full_open_on_phone"
+            android:icon="@drawable/googleg_disabled_color_18"
             android:title="@string/nearest_shopping_centre" />
         <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/Share_with" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/gallery" />
+        <item
             android:id="@+id/nav_about_us"
-            android:icon="@mipmap/logo"
+            android:icon="@drawable/about_us"
             android:title="@string/about_us_tab" />
         <item
             android:id="@+id/nav_manage_settings"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/settings" />
     </group>
-
 </menu>

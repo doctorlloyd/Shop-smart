@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.doc.final_project.MainActivity">
+    tools:context="com.example.admin.shopsmart.activities.ActivityMap">
     <item
         android:id="@+id/mapTypeNormal"
         android:orderInCategory="100"

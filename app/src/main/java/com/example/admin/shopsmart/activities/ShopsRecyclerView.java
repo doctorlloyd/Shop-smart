@@ -1,13 +1,18 @@
 package com.example.admin.shopsmart.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,15 +30,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import static java.security.AccessController.getContext;
+
 public class ShopsRecyclerView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DatabaseReference mDatabaseReference;
     private RecyclerView recyclerView;
     private String _key;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private int mThemeId = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.global_list);
+        if(savedInstanceState != null && savedInstanceState.getInt("theme", -1) != -1) {
+            mThemeId = savedInstanceState.getInt("theme");
+            this.setTheme(mThemeId);
+        }
+
+//        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.scrollToRefresh);
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                onStart();
+//            }
+//        });
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Shop");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -128,8 +149,10 @@ public class ShopsRecyclerView extends AppCompatActivity implements NavigationVi
         }
 
         void setImg(Context c, String img){
-
             ImageView imageView = (ImageView) mView.findViewById(R.id.imageview_Shop);
+//            Bitmap bitmap = BitmapFactory.decodeFile(img);
+//            bitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, true);
+//            imageView.setImageBitmap(bitmap);
             Picasso.with(c).load(img).into(imageView);
 
         }
@@ -141,6 +164,7 @@ public class ShopsRecyclerView extends AppCompatActivity implements NavigationVi
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            //TODO are you sure you want to exit
             super.onBackPressed();
         }
     }
@@ -160,10 +184,40 @@ public class ShopsRecyclerView extends AppCompatActivity implements NavigationVi
             Intent intent = new Intent("android.intent.action.ABOUT_US");
             startActivity(intent);
         } else if (id == R.id.nav_manage_settings) {
-
+            startDialog();
+        }else if(id == R.id.nav_share)
+        {
+            startActivity(new Intent(getBaseContext(),Gallery.class));
+            finish();
+        }else if(id==R.id.nav_gallery){
+            startActivity(new Intent(getBaseContext(),GalleryRecyclerView.class));
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //--------------------
+    private void startDialog() {
+        AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this);
+        myAlertDialog.setTitle("Change app theme");
+        myAlertDialog.setMessage("Which theme do you want to set?");
+
+        myAlertDialog.setPositiveButton("Light theme",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        mThemeId = R.style.AppTheme;
+                    }
+                });
+
+        myAlertDialog.setNegativeButton("Dark theme",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        mThemeId = R.style.DarkTheme;
+                    }
+                });
+        myAlertDialog.show();
+    }
+    // ===========
+
 }

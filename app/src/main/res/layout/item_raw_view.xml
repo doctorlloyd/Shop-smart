@@ -3,17 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:theme="@style/AppTheme"
     android:layout_margin="10dp"
     android:orientation="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="24dp"
             android:layout_gravity="center_horizontal">
 
             <ImageView
@@ -32,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/price_color"
+                android:elevation="16dp"
                 android:gravity="center"
                 android:textSize="32sp"
                 android:text="@string/now_32_00" />
@@ -42,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/shop_name"
+            android:elevation="12dp"
             android:textAllCaps="true"
             android:textSize="32sp" />
 

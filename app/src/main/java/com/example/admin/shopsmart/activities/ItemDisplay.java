@@ -38,10 +38,10 @@ public class ItemDisplay extends AppCompatActivity {
 
                 tvItemPrice.setText("Now R "+food.getFood_Reduced_Price()+"\n Was R "+food.getFood_Normal_Price());
                 tvItemDiscount.setText("R "+food.getFood_Amount_Off()+" OFF");
-                tvItemName.setText(food.getFood_Brand_Name());
-                tvShopName.setText(shop.getShop_Name());
-                tvSpecification.setText(food.getFood_Specification());
-                tvSpecialDuration.setText("Special duration "+food.getFood_Special_Duration());
+                tvItemName.setText("Item name: "+food.getFood_Brand_Name());
+                tvShopName.setText("Shop name: "+shop.getShop_Name());
+                tvSpecification.setText("About the item: "+food.getFood_Specification());
+                tvSpecialDuration.setText("Special duration: "+food.getFood_Special_Duration());
                 Picasso.with(this).load(food.getImage()).into(imgItemIcon);
 //                Picasso.with(this).load(shop.getImage()).into(imgShopLogo);
 
@@ -50,20 +50,20 @@ public class ItemDisplay extends AppCompatActivity {
 
                 tvItemPrice.setText("Now R "+clothing.getClothing_Reduced_Price()+"\n Was R "+clothing.getClothing_Normal_Price());
                 tvItemDiscount.setText(String.valueOf(clothing.getClothing_Percentage_Off())+"% OFF");
-                tvItemName.setText(clothing.getClothing_Brand_Name());
-                tvShopName.setText(shop.getShop_Name());
-                tvSpecification.setText(clothing.getClothing_Specification());
-                tvSpecialDuration.setText("Sale duration "+clothing.getClothing_Duration());
+                tvItemName.setText("Item name: "+clothing.getClothing_Brand_Name());
+                tvShopName.setText("Shop name: "+shop.getShop_Name());
+                tvSpecification.setText("About the item: "+clothing.getClothing_Specification());
+                tvSpecialDuration.setText("Sale duration: "+clothing.getClothing_Duration());
                 Picasso.with(this).load(clothing.getImage()).into(imgItemIcon);
 //                Picasso.with(this).load(shop.getImage()).into(imgShopLogo);
             } else {
                 Furniture furniture = (Furniture) getIntent().getSerializableExtra("item");
                 tvItemPrice.setText("Now R "+furniture.getFurniture_Reduced_Price()+"\n Was R "+furniture.getFurniture_Normal_Price());
                 tvItemDiscount.setText(String.valueOf(furniture.getFurniture_Percentage_Off())+"% OFF");
-                tvItemName.setText(furniture.getFurniture_Brand_Name());
-                tvShopName.setText(shop.getShop_Name());
-                tvSpecification.setText(furniture.getFurniture_Specification());
-                tvSpecialDuration.setText("Sale duration "+furniture.getFurniture_Special_Duration());
+                tvItemName.setText("Item name: "+furniture.getFurniture_Brand_Name());
+                tvShopName.setText("Shop name: "+shop.getShop_Name());
+                tvSpecification.setText("About the item: "+furniture.getFurniture_Specification());
+                tvSpecialDuration.setText("Sale duration: "+furniture.getFurniture_Special_Duration());
                 Picasso.with(this).load(furniture.getImage()).into(imgItemIcon);
 //                Picasso.with(this).load(shop.getImage()).into(imgShopLogo);
             }
